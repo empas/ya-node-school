@@ -1,0 +1,29 @@
+html, body{
+    padding: 20px 0;
+}
+#container{
+    width: 30vw;
+    margin-left: 35vw;
+    text-align: center;
+}
+#myForm{
+    margin: 5px 0;
+}
+#resultContainer{
+    display: inline-block;
+    width: 15vw;
+}
+input{
+    margin: 5px;
+}
+.error{
+    border: 1px solid red;
+}
+.success{
+    border: 1px solid green;
+    background-color: lightgreen;
+}
+.progress{
+    border: 1px solid grey;
+    background-color: lightgrey;
+}

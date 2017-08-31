@@ -1,0 +1,20 @@
+{
+  "name": "ya-node-school",
+  "version": "1.0.0",
+  "description": "Тестовое задание для \"Школа Node.js\" от Яндекс.Деньги",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/empas/ya-node-school.git"
+  },
+  "author": "empas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/empas/ya-node-school/issues"
+  },
+  "homepage": "https://github.com/empas/ya-node-school#readme"
+}
