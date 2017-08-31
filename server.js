@@ -39,9 +39,9 @@ const server = http.createServer((req, res) => {
             });
             req.on('end', function () {
                 console.log(jsonString);
+                res.writeHead(200, {'Content-Type': 'application/json'})
+                res.end(randomAnswer(), 'utf-8');
             });
-            res.writeHead(200, {'Content-Type': 'application/json'})
-            res.end(randomAnswer(), 'utf-8');
         }else{
             res.writeHead(405, {'Content-Type': 'text/html'});
             res.end('<h1>Method Not Allowed</h1>', 'utf-8');
