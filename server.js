@@ -24,13 +24,22 @@ const server = http.createServer((req, res) => {
         if(req.method == 'GET'){
             fs.readFile('index.html', (err, data) => {
                 if(err){
-                    return console.log('Что-то пошло не так', err);
+                    console.log('Что-то пошло не так', err);
+                    res.writeHead(500, {'Content-Type': 'text/html'})
+                    res.end('<h1>Internal Server Error</h1>', 'utf-8');
                 }else{
                     res.writeHead(200, {'Content-Type': 'text/html'})
                     res.end(data, 'utf-8');
                 }
             });
         }else if(req.method == 'POST'){
+            var jsonString = '';
+            req.on('data', function (data) {
+                jsonString += data;
+            });
+            req.on('end', function () {
+                console.log(jsonString);
+            });
             res.writeHead(200, {'Content-Type': 'application/json'})
             res.end(randomAnswer(), 'utf-8');
         }else{
@@ -42,7 +51,9 @@ const server = http.createServer((req, res) => {
         let contentType = /\.js/.test(url)?'text/javascript':'text/css';
         fs.readFile(url, (err, data) => {
             if(err){
-                return console.log('Что-то пошло не так', err);
+                console.log('Что-то пошло не так', err);
+                res.writeHead(500, {'Content-Type': 'text/html'})
+                res.end('<h1>Internal Server Error</h1>', 'utf-8');
             }else{
                 res.writeHead(200, {'Content-Type': contentType})
                 res.end(data, 'utf-8');

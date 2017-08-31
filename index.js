@@ -6,6 +6,10 @@ const emailRegExp = /^[a-z][a-z\d\-\.]{0,28}[a-z\d]@(ya\.ru|yandex\.ru|yandex\.u
 const phoneRegExp = /^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$/;
 const formAction = formEl.getAttribute('action');
 
+formEl.fio.value = 'Ив Ив Ив';
+formEl.email.value = 'err@ya.ru';
+formEl.phone.value = '+7(111)111-11-11';
+
 
 const myForm = {
     getData(){
@@ -95,9 +99,10 @@ function overThirty(phone){
 function request(data, url){
 
     return new Promise((resolve, reject) => {
+
         fetch(url, {
             method: 'POST',
-            body: data
+            body: JSON.stringify(data)
         })
             .then(res => {
                 return res.json();
